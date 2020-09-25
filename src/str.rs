@@ -5,6 +5,5 @@ const ALPHANNUMERICS: &'static str = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef
 const ALPHANUMERICS_U: &'static str = "0123456789abcdefghijklmnopqrstuvwxyz";
 const ALPHANUMERICS_L: &'static str =  "0123456789abcdefghijklmnopqrstuvwxyz";
 
-#[cfg(test)]
 mod tests {
 }

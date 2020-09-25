@@ -2,25 +2,11 @@ use super::snippet;
 
 //source: https://github.com/magurotuna/libprocon
 
-#[snippet("chmin")]
 macro_rules! chmin {
     ($base:expr, $($cmps:expr),+ $(,)*) => {{
         let cmp_min = min!($($cmps),+);
         if $base > cmp_min {
             $base = cmp_min;
-            true
-        } else {
-            false
-        }
-    }};
-}
-
-#[snippet("chmax")]
-macro_rules! chmax {
-    ($base:expr, $($cmps:expr),+ $(,)*) => {{
-        let cmp_max = max!($($cmps),+);
-        if $base < cmp_max {
-            $base = cmp_max;
             true
         } else {
             false
@@ -40,6 +26,18 @@ macro_rules! min {
     }};
 }
 
+macro_rules! chmax {
+    ($base:expr, $($cmps:expr),+ $(,)*) => {{
+        let cmp_max = max!($($cmps),+);
+        if $base < cmp_max {
+            $base = cmp_max;
+            true
+        } else {
+            false
+        }
+    }};
+}
+
 macro_rules! max {
     ($a:expr $(,)*) => {{
         $a
@@ -52,7 +50,6 @@ macro_rules! max {
     }};
 }
 
-#[cfg(test)]
 mod tests {
     #[test]
     fn test_min_macro() {

@@ -65,6 +65,5 @@ impl Facto {
     }
 }
 
-#[cfg(test)]
 mod tests {
 }
