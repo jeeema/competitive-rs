@@ -1,5 +1,5 @@
 type SomeInt = i32;
-type PositiveInt = usize;
+type PositiveInt = i32;
 
 fn gcd(x: SomeInt, y: SomeInt) -> SomeInt {
     if y == 0 {
