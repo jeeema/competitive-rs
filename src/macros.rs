@@ -1,7 +1,8 @@
-use super::snippet;
+use super::*;
 
 //source: https://github.com/magurotuna/libprocon
 
+#[snippet]
 macro_rules! chmin {
     ($base:expr, $($cmps:expr),+ $(,)*) => {{
         let cmp_min = min!($($cmps),+);
@@ -26,6 +27,7 @@ macro_rules! min {
     }};
 }
 
+#[snippet]
 macro_rules! chmax {
     ($base:expr, $($cmps:expr),+ $(,)*) => {{
         let cmp_max = max!($($cmps),+);
