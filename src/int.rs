@@ -3,7 +3,7 @@ use super::*;
 const P: u64 = 1000000007;
 
 #[snippet]
-fn prime_factorize(mut n: i64) -> Vec<(i64, usize)> {
+fn solo_prime_factorize(mut n: i64) -> Vec<(i64, usize)> {
     let m = n;
     let mut res = Vec::with_capacity(65);
     let mut p = 2;
@@ -35,7 +35,6 @@ fn lcm(x: i64, y: i64) -> i64 {
 
 #[snippet]
 fn sieve(n: i64) -> Vec<bool> {
-    if n < 1 { panic!("n must be greater than 1."); }
     let mut is_prime = vec![true; n as usize];
     is_prime[0] = false;
     is_prime[1] = false;
