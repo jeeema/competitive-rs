@@ -16,3 +16,4 @@ mod int;
 mod macros;
 mod str;
 mod extslice;
+mod union_find;

@@ -1,25 +1,32 @@
 use super::*;
 
-const P: u64 = 1000000007;
+const P: u64 = 7;
 
 #[snippet]
-fn solo_prime_factorize(mut n: i64) -> Vec<(i64, usize)> {
+fn solo_prime_factorize(mut n: i64) -> Vec<(i64, u32)> {
     let m = n;
     let mut res = Vec::with_capacity(65);
     let mut p = 2;
-    let mut buf = 0usize;
+    let mut e = 0u32;
     while p * p <= m {
         if n % p == 0 {
-            buf += 1;
+            e += 1;
             n /= p;
-        } else if buf > 0 {
-            res.push((p, buf));
-            buf = 0;
+        } else if e > 0 {
+            res.push((p, e));
+            e = 0;
             p += 1;
         } else { p += 1; }
     }
-    if n > 1 { res.push((n, 1usize)); }
+    if n > 1 { res.push((n, 1u32)); }
     res
+}
+
+// エラトステネスのふるいを前処理で作ることで個別のクエリを効率よく処理できる
+// osa_k法?
+#[snippet]
+fn multi_prime_factorize(_n: i64) -> Vec<(i64, usize)> {
+    unimplemented!();
 }
 
 #[snippet]
@@ -90,4 +97,11 @@ fn multiples(r: std::ops::RangeInclusive<i64>, n: i64) -> i64 {
 
 mod tests {
     use super::*;
+
+    #[test]
+    fn test_mod_pow() {
+        assert_eq!(mod_pow(2, 2), 4);
+        assert_eq!(mod_pow(3, 2), 2);
+        assert_eq!(mod_pow(7, 10101010), 0);
+    }
 }
