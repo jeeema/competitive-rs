@@ -24,10 +24,10 @@ impl UnionFind {
         if px == py { return; }
         if self.0[px] <= self.0[py] {
             self.0[px] += self.0[py];
-            self.0[y] = x as isize;
+            self.0[py] = px as isize;
         } else {
             self.0[py] += self.0[px];
-            self.0[px] = y as isize;
+            self.0[px] = py as isize;
         }
     }
 
